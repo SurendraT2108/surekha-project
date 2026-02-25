@@ -1,0 +1,21 @@
+import pickle
+from sklearn.linear_model import LogisticRegression
+import numpy as np
+
+# Fake training data (you MUST replace this with real data later)
+X = np.array([
+    [25, 30000, 1, 1],
+    [35, 60000, 5, 2],
+    [45, 90000, 15, 2],
+    [23, 28000, 1, 1],
+    [50, 100000, 20, 3]
+])
+y = np.array([1, 0, 0, 1, 0])
+
+model = LogisticRegression()
+model.fit(X, y)
+
+with open("model.pkl", "wb") as f:
+    pickle.dump(model, f)
+
+print("model.pkl created!")
