@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Attrition & Salary Prediction</title>
+
+    <!-- THIS is what you were missing -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Employee Attrition & Salary Prediction</h2>
+
+    <form action="/predict" method="POST">
+        <label>Age:</label>
+        <input type="number" name="age" required><br><br>
+
+        <label>Salary:</label>
+        <input type="number" name="salary" required><br><br>
+
+        <label>Experience (Years):</label>
+        <input type="number" name="experience" required><br><br>
+
+        <label>Job Role:</label>
+        <select name="job_role" required>
+            <option value="1">Developer</option>
+            <option value="2">Manager</option>
+            <option value="3">Sales Executive</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
